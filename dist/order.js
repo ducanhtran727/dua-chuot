@@ -60,6 +60,7 @@ gallery.addEventListener('touchend', (event) => {
 
 form.addEventListener('submit', async (event) => {
   event.preventDefault();
+  if (typeof fbq === "function") fbq("track", "InitiateCheckout");
   if (submit.disabled) return;
   const endpoint = window.ORDER_SCRIPT_URL.trim();
   if (!/^https:\/\/script\.google\.com\/macros\/s\/[\w-]+\/exec$/.test(endpoint)) {
@@ -90,6 +91,10 @@ form.addEventListener('submit', async (event) => {
     form.reset();
     status.textContent = '';
     orderPopup.close();
+    if (typeof fbq === "function") fbq("track", "Purchase", {
+      value: 950000,
+      currency: "VND",
+    });
     successPopup.showModal();
   } catch {
     status.textContent = 'Chưa xác nhận được đơn. Vui lòng thử lại.';
