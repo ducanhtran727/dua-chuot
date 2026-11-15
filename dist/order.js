@@ -92,7 +92,7 @@ form.addEventListener('submit', async (event) => {
     status.textContent = '';
     orderPopup.close();
     if (typeof fbq === "function") fbq("track", "Purchase", {
-      value: 950000,
+      value: body.get("quantity") === "5" ? 115000 : 145000,
       currency: "VND",
     });
     successPopup.showModal();
