@@ -241,3 +241,5 @@ body:has(.order-dialog[open]) {overflow:hidden}
 #w-jzvgamuh .gallery-view-icon-next::before {content:"›"}
 #w-jzvgamuh .gallery-view-icon-prev::before {content:"‹"}
 #w-jzvgamuh :is(.gallery-controls-icon-next,.gallery-controls-icon-prev) {display:none}
+
+.cucumber-prices small {display:block;font-size:12px;line-height:1.4}
